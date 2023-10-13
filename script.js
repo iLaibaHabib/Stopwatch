@@ -11,10 +11,9 @@ document.getElementById("start-timer").addEventListener("click", () => {
 });
 function displayTimer(){
     milliseconds += 10;
-    seconds = milliseconds == 1000 ? (seconds + 1) % 60 : seconds;
-    minutes = seconds == 0 && milliseconds == 0 ? (minutes + 1) % 60 : minutes;
-    hours = minutes == 0 && seconds == 0 && milliseconds == 0 ? hours + 1 : hours;
-    milliseconds = milliseconds == 1000 ? 0 : milliseconds;
+    seconds += milliseconds >= 1000 ? (milliseconds = 0, 1) : 0;
+    minutes += seconds >= 60 ? (seconds = 0, 1) : 0;
+    hours += minutes >= 60 ? (minutes = 0, 1) : 0;
 
     let h = String(hours).padStart(2, "0");
     let m = String(minutes).padStart(2, "0");
