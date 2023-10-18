@@ -18,7 +18,7 @@ function displayTimer(){
     let h = String(hours).padStart(2, "0");
     let m = String(minutes).padStart(2, "0");
     let s = String(seconds).padStart(2, "0");
-    let ms = String(milliseconds).padStart(3, "0");
+    let ms = String(milliseconds).slice(0,2).padStart(2, "0");
 
     timerRef.innerHTML = `${h} : ${m} : ${s} : ${ms}`;
 }
@@ -32,5 +32,5 @@ document.getElementById("reset-timer").addEventListener("click", () => {
         clearInterval(int);
         [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0 ];
     }
-    timerRef.innerHTML = "00 : 00 : 00 : 000";
+    timerRef.innerHTML = "00 : 00 : 00 : 00";
 });
