@@ -18,7 +18,7 @@ function displayTimer(){
     let h = String(hours).padStart(2, "0");
     let m = String(minutes).padStart(2, "0");
     let s = String(seconds).padStart(2, "0");
-    let ms = String(milliseconds).toString().slice(0,2).padStart(2, "0");
+    let ms = String(milliseconds).slice(0,2).padStart(2, "0");
 
     timerRef.innerHTML = `${h} : ${m} : ${s} : ${ms}`;
 }
